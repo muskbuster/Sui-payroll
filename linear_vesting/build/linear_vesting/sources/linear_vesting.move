@@ -42,8 +42,8 @@ module linea_vesting::linear_vesting {
     * @return Wallet<T> - The new Wallet
     */
     public fun new<T>(token: Coin<T>, c: &Clock, start: u64, duration: u64, ctx: &mut TxContext): Wallet<T> {
-        assert!(start >= clock::timestamp_ms(c), EInvalidStartDate);
-            Wallet {
+        // assert!(start >= clock::timestamp_ms(c), EInvalidStartDate);
+        Wallet {
             id: object::new(ctx),
             balance: coin::into_balance(token),
             released: 0,
@@ -75,13 +75,14 @@ module linea_vesting::linear_vesting {
     * @return u64 - The status of the vesting
     */
     public fun vesting_status<T>(self: &Wallet<T>, c: &Clock): u64 {
-        linear_vested_amount(
-            self.start, 
-            self.duration, 
-            balance::value(&self.balance), 
-            self.released, 
-            clock::timestamp_ms(c)
-        ) - self.released
+        // linear_vested_amount(
+        //     self.start, 
+        //     self.duration, 
+        //     balance::value(&self.balance), 
+        //     self.released, 
+        //     clock::timestamp_ms(c)
+        // ) - self.released
+        balance::value(&self.balance)
     }
 
     /*
@@ -95,9 +96,7 @@ module linea_vesting::linear_vesting {
     */
     public fun claim<T>(self: &mut Wallet<T>, c: &Clock, ctx: &mut TxContext): Coin<T> {
         let releasable = vesting_status(self, c);
-
         *&mut self.released = self.released + releasable;
-
         coin::from_balance(balance::split(&mut self.balance, releasable), ctx)
     }
 

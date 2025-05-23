@@ -267,5 +267,5 @@ module payroll::payroll {
 
     public fun get_employee_count<T>(payroll: &Payroll<T>): u64 {
         vec_map::size(&payroll.employee_addresses)
-    }
-} 
+    }   
+}
