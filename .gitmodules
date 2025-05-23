@@ -1,0 +1,3 @@
+[submodule "frontend/client"]
+	path = frontend/client
+	url = https://github.com/vwakesahu/payments-sui-frontend.git
