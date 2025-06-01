@@ -14,6 +14,8 @@ A global payment protocol built on Sui focusing on institutional payments and to
 [![Demo](https://img.shields.io/badge/🎥_Watch_Demo-Loom_Video-red?style=for-the-badge)](https://www.loom.com/share/7c56e8d5c65b42328adb10b6cd9f2180?sid=67751b8b-4c56-45f7-a8b0-26618bd08a90)
 [![GitHub](https://img.shields.io/badge/📦_View_Code-GitHub-black?style=for-the-badge)](https://github.com/muskbuster/Sui-payroll)
 
+
+Refer Frontend submodule for frontend and more detailed commit history for this project.
 </div>
 
 ## Overview
